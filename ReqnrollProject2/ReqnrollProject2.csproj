@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ExtentReports" Version="5.0.4" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.10.0" />
+    <PackageReference Include="Reqnroll.xUnit" Version="2.3.0" />
+    <PackageReference Include="Selenium.WebDriver" Version="4.29.0" />
+    <PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="134.0.6998.2300-beta" />
+    <PackageReference Include="WebDriverManager" Version="2.17.5" />
+    <PackageReference Include="xunit" Version="2.8.1" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.8.1" />	  <PackageReference Include="Reqnroll" Version="2.3.0" />
+
+  </ItemGroup>
+<Import Project="..\packages\Reqnroll.2.0.0\build\netstandard2.0\Reqnroll.targets" Condition="Exists('..\packages\Reqnroll.2.0.0\build\netstandard2.0\Reqnroll.targets')" />
+
+  <ItemGroup>
+    <Folder Include="Drivers\" />
+    <Folder Include="Support\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TEST_MVC2\TEST_MVC2.csproj" />
+  </ItemGroup>
+
+</Project>

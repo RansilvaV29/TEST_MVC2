@@ -1,0 +1,53 @@
+﻿@model TEST_MVC2.Models.OpinionesClientes
+
+@{
+    ViewData["Title"] = "Editar Opinión";
+}
+
+<h1>Editar Opinión</h1>
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="card shadow p-4">
+                <h4 class="text-center mb-4">Modificar Opinión</h4>
+
+                @using (Html.BeginForm("Edit", "OpinionesClientes", FormMethod.Post))
+                {
+                    @Html.HiddenFor(model => model.OpinionID)
+
+                    <div class="mb-3">
+                        @Html.LabelFor(model => model.Codigo, new { @class = "form-label" })
+                        @Html.DropDownListFor(model => model.Codigo, new SelectList(ViewBag.Clientes, "Codigo", "Nombres"), "-- Seleccione Cliente --", new { @class = "form-control", required = "required", disabled = "disabled" })
+                        @Html.HiddenFor(model => model.Codigo) <!-- Mantener el valor al enviar -->
+                    </div>
+
+                    <div class="mb-3">
+                        @Html.LabelFor(model => model.ProductoID, new { @class = "form-label" })
+                        @Html.DropDownListFor(model => model.ProductoID, new SelectList(ViewBag.Productos, "ProductoID", "Nombre"), "-- Seleccione Producto --", new { @class = "form-control" })
+                    </div>
+
+                    <div class="mb-3">
+                        @Html.LabelFor(model => model.Calificacion, new { @class = "form-label" })
+                        @Html.TextBoxFor(model => model.Calificacion, new { @class = "form-control", type = "number", min = "1", max = "5", required = "required" })
+                    </div>
+
+                    <div class="mb-3">
+                        @Html.LabelFor(model => model.Comentario, new { @class = "form-label" })
+                        @Html.TextAreaFor(model => model.Comentario, new { @class = "form-control" })
+                    </div>
+
+                    <div class="mb-3">
+                        @Html.LabelFor(model => model.Fecha, new { @class = "form-label" })
+                        @Html.TextBoxFor(model => model.Fecha, new { @class = "form-control", type = "date", required = "required" })
+                    </div>
+
+                    <div class="d-flex justify-content-between">
+                        <a href="@Url.Action("Index", "OpinionesClientes")" class="btn btn-secondary">Volver</a>
+                        <button type="submit" class="btn btn-primary">Actualizar</button>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

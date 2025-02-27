@@ -1,0 +1,35 @@
+﻿@model TEST_MVC2.Models.Producto
+
+@{
+    ViewData["Title"] = "Crear Producto";
+}
+
+<h1>Crear Producto</h1>
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="card shadow p-4">
+                <h4 class="text-center mb-4">Nuevo Producto</h4>
+
+                @using (Html.BeginForm("Create", "Producto", FormMethod.Post))
+                {
+                    <div class="mb-3">
+                        @Html.LabelFor(model => model.Nombre, new { @class = "form-label" })
+                        @Html.TextBoxFor(model => model.Nombre, new { @class = "form-control", required = "required" })
+                    </div>
+
+                    <div class="mb-3">
+                        @Html.LabelFor(model => model.Descripcion, new { @class = "form-label" })
+                        @Html.TextBoxFor(model => model.Descripcion, new { @class = "form-control" })
+                    </div>
+
+                    <div class="d-flex justify-content-between">
+                        <a href="@Url.Action("Index", "Producto")" class="btn btn-secondary">Volver</a>
+                        <button id="botonSubmit" type="submit" class="btn btn-primary">Guardar</button>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
